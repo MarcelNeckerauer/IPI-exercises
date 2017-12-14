@@ -68,6 +68,15 @@ public:
 };
 
 int main() {
-
+  double x1 = 2.0;
+  double x2 = 5.0;
+  double y1 = 3.0;
+  double y2 = -3.0;
+  Point2D p1 = Point2D(x1, x2);
+  Point2D p2 = Point2D();
+  p2.setX(y1);
+  p2.setY(y2);
+  std::cout << "(" << p1.getX() << ", " << ")" << std::endl;
+  std::cout << "(" << p2.getX() << ", " << ")" << std::endl;
 	return 0;
 }
