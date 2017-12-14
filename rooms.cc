@@ -7,28 +7,14 @@ public:
   Room (string n) {name = n; North = this; South = this; East = this; West = this;};
   string name;
   Room *North, *South, *East, *West;
-  /*void game() {
-    bool done = false;
-    do {
-      cout << "Sie sind im " << this -> name << "Es gibt Wege nach";
-      if (this -> East != this) cout << " O";
-      if (this -> West != this) cout << " W";
-      if (this -> South != this) cout << " S";
-      if (this -> North != this) cout << " N";
-      cout << ". Wohin? (X:exit)" << endl;
-      string in;
-      cin >> in;
-      switch (toupper(in[0])) {
-        case 'N': this = this -> North; break;
-        case 'S': this = this -> South; break;
-        case 'O': this = this -> East; break;
-        case 'W': this = this -> West; break;
-        default: done = true; cout << "Tschuess!" << endl; break;
-      }
-    }
-    while(!done);
-  }*/
-};
+  void init() {
+    cout << "Sie sind im " << this -> name << ". Es gibt Wege nach";
+    if (this->East != this) cout << " O";
+    if (this->West != this) cout << " W";
+    if (this->North != this) cout << " N";
+    if (this->South != this) cout << " S";
+    cout << ". Wohin? (X:exit)" << endl;
+  }
 
 int main()
 {
@@ -47,11 +33,7 @@ int main()
   Room * here = &r2;
   bool done = false;
   do {
-    cout << "Sie sind im " << here->name << ". Es gibt Wege nach";
-    if (here->East != here) cout << " O";
-    if (here->West != here) cout << " W";
-    if (here->North != here) cout << " N";
-    if (here->South != here) cout << " S";
+    here -> init();
     cout << ". Wohin? (X:exit)" << endl;
     string in;
     cin >> in;
@@ -63,5 +45,5 @@ int main()
       default: done = true; cout << "Tschuess!\n"; break;
     }
   } while (!done);
-  //*here -> game();
+  return 0;
 }
