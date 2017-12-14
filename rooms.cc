@@ -7,6 +7,27 @@ public:
   Room (string n) {name = n; North = this; South = this; East = this; West = this;};
   string name;
   Room *North, *South, *East, *West;
+  void game() {
+    bool done = false;
+    do {
+      cout << "Sie sind im " << this -> name << "Es gibt Wege nach";
+      if (this -> East != this) cout << " O";
+      if (this -> West != this) cout << " W";
+      if (this -> South != this) cout << " S";
+      if (this -> North != this) cout << " N";
+      cout << ". Wohin? (X:exit)" << endl;
+      string in;
+      cin >> in;
+      switch (toupper(in[0])) {
+        case 'N': this = this -> North; break;
+        case 'S': this = this -> South; break;
+        case 'O': this = this -> East; break;
+        case 'W': this = this -> West; break;
+        default: done = true; cout << "Tschuess!" << endl; break;
+      }
+    }
+    while(!done);
+  }
 };
 
 int main()
@@ -42,4 +63,5 @@ int main()
       default: done = true; cout << "Tschuess!\n"; break;
     }
   } while (!done);
+  *here.game();
 }
