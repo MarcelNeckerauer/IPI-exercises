@@ -15,6 +15,9 @@ public:
     if (this -> South != this) cout << " S";
     cout << ". Wohin? (X:exit)" << endl;
   }
+  string getName() {
+    return name;
+  }
 };
 
 int main()
@@ -25,12 +28,14 @@ int main()
   Room r4("Esszimmer");
   Room r5("Flur");
   Room r6("Kueche");
+  Room r7("Draussen");
   r1.North = &r2; r1.East = &r5;
   r2.South = &r1; r2.East = &r3;
   r3.West = &r2;  r3.South = &r5; r3.East = &r4;
   r4.West = &r3; r4.South = &r6;
-  r5.West = &r1;  r5.North = &r3; r5.East = &r6;
+  r5.West = &r1;  r5.North = &r3; r5.East = &r6; r5.South = &r7;
   r6.North = &r4; r6.West = &r5;
+  string stop = r7.getName();
   Room * here = &r2;
   bool done = false;
   do {
@@ -39,7 +44,13 @@ int main()
     cin >> in;
     switch (toupper(in[0])) {           // in[0] ist der erste Buchstabe der Eingabe.
       case 'N': here = here->North; break;  // toupper() konvertiert zu einem Großbuchstaben
-      case 'S': here = here->South; break;
+      case 'S': here = here->South;
+       if (here -> getName() == stop) {
+         done = true;
+         cout << "Tschuess!" << endl;
+       }
+       break;
+
       case 'O': here = here->East; break;
       case 'W': here = here->West; break;
       default: done = true; cout << "Tschuess!\n"; break;
