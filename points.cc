@@ -48,7 +48,7 @@ public:
 		z = 0;
 	}
 
-	Point3D(double xNew, double yNew, double zNew) : Point2D(double xNew, double yNew), z(zNew) { }
+	Point3D(double xNew, double yNew, double zNew) : Point2D(xNew, yNew), z(zNew) { }
 	void setZ (double zNew) {
 		z = zNew;
 	}
