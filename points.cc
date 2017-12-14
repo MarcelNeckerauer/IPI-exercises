@@ -80,5 +80,14 @@ int main() {
   std::cout << "(" << p2.getX() << ", " << p2.getY() << ")" << std::endl;
   std::cout << "Der Abstand zwischen P1 = (2/5) und P2 = (3/-3) betraegt: "
             << p1.calcDistance(p2) << std::endl;
+  double x3 = 4.0;
+  double y3 = 0.0;
+  Point3D p3 = Point3D();
+  p3.setX(x1);
+  p3.setY(x2);
+  p3.setZ(x3);
+  Point3D p4 = Point3D(y1, y2, y3);
+  std::cout << "(" << p3.getX() << ", " << p3.getY() << ", " << p3.getZ() << ")" << std::endl;
+  std::cout << "(" << p4.getX() << ", " << p4.getY() << ", " << p4.getZ() << ")" << std::endl;
 	return 0;
 }
