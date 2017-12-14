@@ -7,7 +7,7 @@ public:
   Room (string n) {name = n; North = this; South = this; East = this; West = this;};
   string name;
   Room *North, *South, *East, *West;
-  void game() {
+  /*void game() {
     bool done = false;
     do {
       cout << "Sie sind im " << this -> name << "Es gibt Wege nach";
@@ -27,7 +27,7 @@ public:
       }
     }
     while(!done);
-  }
+  }*/
 };
 
 int main()
@@ -63,5 +63,5 @@ int main()
       default: done = true; cout << "Tschuess!\n"; break;
     }
   } while (!done);
-  *here.game();
+  //*here -> game();
 }
