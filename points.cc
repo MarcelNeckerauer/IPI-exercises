@@ -37,6 +37,7 @@ public:
 	  double tmp = newX + newY;
 	  double sol = sqrt(tmp);
 	  return sol;
+  }
 };
 
 class Point3D : public Point2D {
