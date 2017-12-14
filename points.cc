@@ -32,8 +32,8 @@ public:
   }
 
   double calcDistance(const Point2D& newPoint) const {
-	  double newX = (this -> x + newPoint.getX()) * (this -> x + newPoint.getX());
-	  double newY = (this -> y + newPoint.getY()) * (this -> y + newPoint.getY());
+	  double newX = (this -> x - newPoint.getX()) * (this -> x - newPoint.getX());
+	  double newY = (this -> y - newPoint.getY()) * (this -> y - newPoint.getY());
 	  double tmp = newX + newY;
 	  double sol = sqrt(tmp);
 	  return sol;
@@ -58,9 +58,9 @@ public:
 	}
 
 	double calcDistance(const Point3D& newPoint) const {
-		double newX = (this -> getX() + newPoint.getX()) * (this -> getX() + newPoint.getX());
-		double newY = (this -> getY() + newPoint.getY()) * (this -> getY() + newPoint.getY());
-		double newZ = (this -> z + newPoint.getZ()) * (this -> z + newPoint.getZ());
+		double newX = (this -> getX() - newPoint.getX()) * (this -> getX() - newPoint.getX());
+		double newY = (this -> getY() - newPoint.getY()) * (this -> getY() - newPoint.getY());
+		double newZ = (this -> z - newPoint.getZ()) * (this -> z - newPoint.getZ());
 		double tmp = newX + newY + newZ;
 		double sol = sqrt(tmp);
 		return sol;
@@ -76,7 +76,9 @@ int main() {
   Point2D p2 = Point2D();
   p2.setX(y1);
   p2.setY(y2);
-  std::cout << "(" << p1.getX() << ", " << ")" << std::endl;
-  std::cout << "(" << p2.getX() << ", " << ")" << std::endl;
+  std::cout << "(" << p1.getX() << ", " << p1.getY() << ")" << std::endl;
+  std::cout << "(" << p2.getX() << ", " << p2.getY() << ")" << std::endl;
+  std::cout << "Der Abstand zwischen P1 = (2/5) und P2 = (3/-3) betraegt: "
+            << p1.calcDistance(p2) << std::endl;
 	return 0;
 }
