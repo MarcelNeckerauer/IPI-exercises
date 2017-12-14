@@ -58,8 +58,8 @@ public:
 	}
 
 	double calcDistance(const Point3D& newPoint) const {
-		double newX = (this -> x + newPoint.getX()) * (this -> x + newPoint.getX());
-		double newY = (this -> y + newPoint.getY()) * (this -> y + newPoint.getY());
+		double newX = (this -> getX() + newPoint.getX()) * (this -> x + newPoint.getX());
+		double newY = (this -> getY() + newPoint.getY()) * (this -> y + newPoint.getY());
 		double newZ = (this -> z + newPoint.getZ()) * (this -> z + newPoint.getZ());
 		double tmp = newX + newY + newZ;
 		double sol = sqrt(tmp);
