@@ -89,5 +89,7 @@ int main() {
   Point3D p4 = Point3D(y1, y2, y3);
   std::cout << "(" << p3.getX() << ", " << p3.getY() << ", " << p3.getZ() << ")" << std::endl;
   std::cout << "(" << p4.getX() << ", " << p4.getY() << ", " << p4.getZ() << ")" << std::endl;
+  std::cout << "Der Abstand der Punkte P1 = (2/5/4) und P2 = (3/-3/0) betraegt: "
+            << p3.calcDistance(p4) << std::endl;
 	return 0;
 }
