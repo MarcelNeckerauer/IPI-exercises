@@ -7,6 +7,14 @@ public:
   Room (string n) {name = n; North = this; South = this; East = this; West = this;};
   string name;
   Room *North, *South, *East, *West;
+  void init() {
+    cout << "Sie sind im " << this -> name << ". Es gibt Wege nach";
+    if (this -> East != this) cout << " O";
+    if (this -> West != this) cout << " W";
+    if (this -> North != this) cout << " N";
+    if (this -> South != this) cout << " S";
+    cout << ". Wohin? (X:exit)" << endl;
+  }
 };
 
 int main()
@@ -26,12 +34,7 @@ int main()
   Room * here = &r2;
   bool done = false;
   do {
-    cout << "Sie sind im " << here->name << ". Es gibt Wege nach";
-    if (here->East != here) cout << " O";
-    if (here->West != here) cout << " W";
-    if (here->North != here) cout << " N";
-    if (here->South != here) cout << " S";
-    cout << ". Wohin? (X:exit)" << endl;
+    here -> init();
     string in;
     cin >> in;
     switch (toupper(in[0])) {           // in[0] ist der erste Buchstabe der Eingabe.
@@ -42,4 +45,5 @@ int main()
       default: done = true; cout << "Tschuess!\n"; break;
     }
   } while (!done);
+  return 0;
 }
