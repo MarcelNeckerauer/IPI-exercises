@@ -95,7 +95,12 @@ bool operator==(Image const & im0, Image const & im1) {
 // eine Variable vom Typ int in einen String umwandelt.
 std::string to_string(Image const & im) {
   std::string res;
-  // IHR CODE HIER
+  for (int i = 0; i < width_; i++) {
+    for (int j = 0; i < heigth_; j++) {
+      res += std::to_string((i, j));
+    }
+    res += '\n';
+  }
   return res;
 }
 
