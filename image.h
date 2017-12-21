@@ -29,7 +29,7 @@ public:
     : width_(width), height_(height) {
 		for (int i = 0; i < width_; i++) {
 			for (int j = 0; j < height_; j++) {
-				data_ = 0;
+				data_[i][j] = 0;
 			}
 		}
 	}
@@ -52,12 +52,14 @@ public:
   // Groesse der Bildes aendern. Welche Methode der Klasse vector
   // ist hier sinnvoll?
   void resize(unsigned int new_width, unsigned int new_height) {
-    //IHR CODE HIER
+    width_ = new_width;
+    height_ = new_height;
+    data_.resize(width_, height_);
   }
 
   // lesender Zugriff auf des Pixel an Position (x,y)
   PixelType operator()(int x, int y) const {
-    return data_;
+    return data_[x][y];
   }
 
   // Lese/Schreib-Zugriff auf des Pixel an Position (x,y)
@@ -99,7 +101,7 @@ std::string to_string(Image const & im) {
     for (int j = 0; i < heigth_; j++) {
       res += std::to_string((i, j));
     }
-    res += '\n';
+    res += "\n";
   }
   return res;
 }
@@ -185,7 +187,11 @@ Image readPGM(std::string const & filename) {
   // Pixeldaten in einer zweifach geschachtelten Schleife ueber
   // die Zeilen und Spalten einlesen.
 
-  // IHR CODE HIER
+  for (int i = 0; i < width; i++) {
+    for (int j = 0; j < height; j++) {
+      
+    }
+  }
 
   return res;
 }
