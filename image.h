@@ -64,7 +64,7 @@ public:
 
   // Lese/Schreib-Zugriff auf des Pixel an Position (x,y)
   PixelType & operator()(int x, int y) {
-    // IHR CODE HIER
+    return data_[x][y];
   }
 };
 
@@ -100,6 +100,7 @@ std::string to_string(Image const & im) {
   for (int i = 0; i < width_; i++) {
     for (int j = 0; i < heigth_; j++) {
       res += std::to_string((i, j));
+      res += " ";
     }
     res += "\n";
   }
@@ -189,7 +190,7 @@ Image readPGM(std::string const & filename) {
 
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < height; j++) {
-      
+
     }
   }
 
