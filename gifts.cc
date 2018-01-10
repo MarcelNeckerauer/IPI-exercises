@@ -1,5 +1,4 @@
 #include <vector>
-#include <cmath>
 
 #include "rectangle.h"
 
@@ -39,41 +38,14 @@ std::vector<Rectangle> gifts = { Rectangle(Point(20.0, 10.0)),
                                Rectangle(Point(4.0, 20.0))
 };
 
-double BIG_NUMBER = 1e300;
-
-double bssf_score(Rectangle const& free, Rectangle const& obj) {
-  double width_diff = free.width() - obj.width();
-  double height_diff = free.height() - obj.height();
-
-  double score;
-  if (width_diff < 0 && height_diff < 0) {
-    score = BIG_NUMBER;
-  }
-  else if(width_diff < 0) {
-    score = height_diff;
-  }
-  else if(height_diff < 0) {
-    score = width_diff;
-  }
-  else {
-    if (width_diff <= height_diff) {
-      score = width_diff;
-    }
-    else {
-      score = height_diff;
-    }
-  }
-  return score;
-}
-
 int main() {
   std::vector<Rectangle> to_be_placed = gifts;
   std::vector<Rectangle> already_placed = {};
   std::vector<Rectangle> free_rectangles = {table};
-  std::vector<double> scores = {};
   bool proceed = true;
 
   while(proceed) {
+    std::vector<double> scores = {};
     for (unsigned int i = 0; i < to_be_placed.size(); i++) {
       Rectangle to_be_tested = to_be_placed.at(i);
       double score = bssf_score(table, to_be_tested);
@@ -108,7 +80,7 @@ int main() {
     if(bssf_score(table, best_rectangle) < best_score) {
       best_rectangle.transpose();
       already_placed.push_back(best_rectangle);
-      
+
     }
 
   }
