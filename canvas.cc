@@ -35,5 +35,9 @@ int Canvas::operator()(int i, int j) {
 }
 
 int& Canvas::operator()(int i, int j) {
-  
+  return _pixels[i][j];
+}
+
+Canvas::write(const std::string& filename) {
+  write_pgm(_pixels, filename);
 }
