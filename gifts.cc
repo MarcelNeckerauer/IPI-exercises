@@ -71,22 +71,41 @@ int main() {
   std::vector<Rectangle> already_placed = {};
   std::vector<Rectangle> free_rectangles = {table};
   std::vector<double> scores = {};
+  bool proceed = true;
 
-  for (unsigned int i = 0; i < to_be_placed.size(); i++) {
-    Rectangle to_be_tested = to_be_placed.at(i);
-    double score = bssf_score(table, to_be_tested);
-    scores.push_back(score);
-  }
-
-  for (unsigned int i = 0; i < to_be_placed.size(); i++) {
-    Rectangle temp = to_be_placed.at(i);
-    Rectangle to_be_tested = temp.transpose();
-    double score = bssf_score(table, to_be_tested);
-    if (score < scores.at(i)) {
-      scores[i] = score;
+  while(proceed) {
+    for (unsigned int i = 0; i < to_be_placed.size(); i++) {
+      Rectangle to_be_tested = to_be_placed.at(i);
+      double score = bssf_score(table, to_be_tested);
+      scores.push_back(score);
     }
-  }
 
+    for (unsigned int i = 0; i < to_be_placed.size(); i++) {
+      Rectangle temp = to_be_placed.at(i);
+      Rectangle to_be_tested = temp.transpose();
+      double score = bssf_score(table, to_be_tested);
+      if (score < scores.at(i)) {
+        scores[i] = score;
+      }
+    }
+
+    double best_score = scores.at(0);
+    unsigned int best_rectangle = 0;
+
+    if(best_score == BIG_NUMBER) {
+      proceed = false;
+      break;
+    }
+    else{
+      for (unsigned int i = 1; i < scores.size(); i++) {
+        if (scores.at(i) < best_score) {
+          best_score = scores.at(i);
+          best_rectangle = i;
+        }
+    }
+
+
+  }
 
   return 0;
 }
