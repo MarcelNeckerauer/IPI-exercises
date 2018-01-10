@@ -1,4 +1,5 @@
 #include <vector>
+#include <cmath>
 
 #include "rectangle.h"
 
@@ -38,7 +39,7 @@ std::vector<Rectangle> gifts = { Rectangle(Point(20.0, 10.0)),
                                Rectangle(Point(4.0, 20.0))
 };
 
-const double BIG_NUMBER = 1e300;
+double BIG_NUMBER = 1e300;
 
 double bssf_score(Rectangle const& free, Rectangle const& obj) {
   double width_diff = free.width() - obj.width();
@@ -85,6 +86,7 @@ int main() {
       scores[i] = score;
     }
   }
+
 
   return 0;
 }
