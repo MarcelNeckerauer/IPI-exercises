@@ -90,7 +90,7 @@ int main() {
     }
 
     double best_score = scores.at(0);
-    unsigned int best_rectangle = 0;
+    unsigned int position = 0;
 
     if(best_score == BIG_NUMBER) {
       proceed = false;
@@ -100,10 +100,16 @@ int main() {
       for (unsigned int i = 1; i < scores.size(); i++) {
         if (scores.at(i) < best_score) {
           best_score = scores.at(i);
-          best_rectangle = i;
+          position = i;
         }
     }
 
+    Rectangle best_rectangle
+    if(bssf_score(table, best_rectangle) < best_score) {
+      best_rectangle.transpose();
+      already_placed.push_back(best_rectangle);
+      
+    }
 
   }
 
