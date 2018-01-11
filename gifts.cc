@@ -82,6 +82,10 @@ int main() {
       already_placed.push_back(best_rectangle);
 
     }
+    else {
+      already_placed.push_back(best_rectangle);
+      
+    }
 
   }
 
