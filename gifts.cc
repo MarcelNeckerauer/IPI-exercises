@@ -46,6 +46,7 @@ int main() {
 
   while(proceed) {
     std::vector<double> scores = {};
+
     for (unsigned int i = 0; i < to_be_placed.size(); i++) {
       Rectangle to_be_tested = to_be_placed.at(i);
       double score = bssf_score(table, to_be_tested);
