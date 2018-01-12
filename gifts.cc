@@ -38,6 +38,11 @@ std::vector<Rectangle> gifts = { Rectangle(Point(20.0, 10.0)),
                                Rectangle(Point(4.0, 20.0))
 };
 
+/* Dieses Programm erfüllt seinen eigentlichen Zweck leider nicht.
+ * Zudem wird das Starten des fertigen Programmes in einer 
+ * Endlosschleife resultieren, weil noch keine Mglichkeit vorhanden
+ * ist, proceed auf false zu stellen.
+*/
 int main() {
   std::vector<Rectangle> to_be_placed = gifts;
   std::vector<Rectangle> already_placed = {};
