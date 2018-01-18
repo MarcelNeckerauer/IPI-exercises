@@ -25,6 +25,7 @@ int main() {
       test_eq(is_Palindrome(line), true);
     }
   }
+  simpletests::test_result();
 
   return 0;
 
