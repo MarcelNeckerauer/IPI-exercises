@@ -1,14 +1,12 @@
 #ifndef FUNTIONS_H
 #define FUNTIONS_H
 
-#include <vector>
+#include <algorithm>
+#include <string>
 
-#include "rectangle.h"
+std::string reverse_string(std::string);
 
-const double BIG_NUMBER = 1e300;
-
-double bssf_score(Rectangle const& free, Rectangle const& obj);
-
+bool is_Palindrome(std::string);
 
 
 #endif

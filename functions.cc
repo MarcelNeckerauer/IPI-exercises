@@ -1,26 +1,16 @@
 #include "functions.h"
+#include <iostream>
 
-double bssf_score(Rectangle const& free, Rectangle const& obj) {
-  double width_diff = free.width() - obj.width();
-  double height_diff = free.height() - obj.height();
+std::string reverse_string(std::string s) {
+  int n = s.length();
 
-  double score;
-  if (width_diff < 0 && height_diff < 0) {
-    score = BIG_NUMBER;
+  for (int i = 0; i < n / 2; i++) {
+    std::swap(s[i], s[n - i -1]);
   }
-  else if(width_diff < 0) {
-    score = height_diff;
-  }
-  else if(height_diff < 0) {
-    score = width_diff;
-  }
-  else {
-    if (width_diff <= height_diff) {
-      score = width_diff;
-    }
-    else {
-      score = height_diff;
-    }
-  }
-  return score;
+  return s;
+}
+
+bool is_Palindrome(std::string s) {
+  std::string temp = reverse_string(s);
+  return s == temp;
 }

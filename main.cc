@@ -3,25 +3,11 @@
 #include <string>
 #include <fstream>
 #include "simpletests.h"
-
-std::string reverse_string(std::string s) {
-  std::string reverse(s.begin(), s.end());
-  return s;
-}
-
-bool is_Palindrome(std::string s) {
-  std::string temp = s;
-  reverse_string(temp);
-  if (temp == s) {
-    return true;
-  }
-  else {
-    return false;
-  }
-}
+#include "functions.h"
 
 int main() {
   test_eq(is_Palindrome("lagerregal"),true);
+  test_eq(is_Palindrome("marcel"), true);
   simpletests::test_result();
 
   std::string filename = "words.txt";
